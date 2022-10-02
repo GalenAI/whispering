@@ -1,0 +1,109 @@
+Given a prompt, extract the names of drugs present in the prompt. Also extract the side of the operation (left or right or center) and the site of the operation (arm, leg, head, etc...).
+
+Example:
+
+Prompt: We will administer 500 ccs of ibuprofen. Violent political speech has increasingly crossed into the realm of in-person confrontation for members of Congress in both parties, raising the prospect of a disastrous event. Begin him on an IV drip of epinephrine. We will make an incision on the right arm 
+
+Drugs: ibuprofen, epinephrine
+
+Side: Right
+
+Site: Arm
+
+Real: 
+
+Prompt: good afternoon my name is natalie i'm a
+student nurse working on the war this
+afternoon
+this is my practice supervisor shelly
+and we'll just do the two o'clock
+medication
+round is it okay if i have a look if you
+do any medicines yes
+i've got here in your prescription shop
+can you just confirm your full name for
+me
+okay and is it all right if i call this
+out that's fine
+and have you got any allergies at all
+could i just have a look at your
+wristband if that's okay can you tell me
+when your birthday is
+21st of july 19th
+and your hospital number is
+five two which 00156952 decision that's
+great we'll see you could do anything
+for two o'clock
+so you've got one medication that should
+do okay and that's called amoxicillin
+it's a liquid medication it's an
+antibiotic haven't had it before
+it's been prescribed because you've got
+a chest infection so to treat that chest
+infection is that okay
+antibiotics can sometimes give you a
+little bit of an upset stomach that can
+make you feel
+sick you can have a little bit of a rash
+with that would you be okay to take that
+if i draw it up yeah it's fine yeah
+okay that's great i'll go and get that
+okay
+i've checked the full patient's identity
+hospital unit number
+and the date of birth or matches the
+prescription chart i've got a prescriber
+signature
+the patient's confirmed they've got no
+allergies at all
+so the drug is amoxicillin oral
+suspension to be given for a chest
+infection
+the dose is 500 milligrams to be given
+orally
+the start date is today and we've got a
+prescriber signature which matches the
+one in the front
+if i look at two o'clock it hasn't been
+signed for already and the patient's
+confirmed they haven't had it already
+for today
+okay
+so i've got amoxicillin oral suspension
+which is amoxicillin oil suspension
+that's prescribed on the chart
+250 milligrams in five milliliters and
+we need 500
+milligrams so i'm going to give 10
+milliliters for the right dose
+for all use only expires 12 20 23
+and it says shaped before use
+i'm going to use an all medication
+syringe one of the purple ones
+so the expiry date on this is 2024 and i
+have to see the packaging's all intact
+so the integrity is good
+i'm going to open this i'm gonna pop it
+in my receiver here
+and i'm gonna draw up ten minutes
+just a little bit more
+The operation will be for the patient's buttock
+We will operate on the left one
+i'm going to pop that back in the paper
+there i've got my medication away
+[Music]
+i'm happy that i've checked up the right
+medication with you and
+we said we were going to go up 10
+milliliters
+that's 10 millimeters there
+so i'll take a pot to go to my patient
+and i'm just going to go back
+i'm going to double check patient's
+identity again okay
+
+Drugs: amoxicillin
+
+Side: Left
+
+Site: Buttock

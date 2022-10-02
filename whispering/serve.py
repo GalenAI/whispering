@@ -5,6 +5,8 @@ import json
 from logging import getLogger
 from typing import Optional
 
+import zmq.asyncio
+
 import numpy as np
 import websockets
 from websockets.exceptions import ConnectionClosedOK
@@ -19,15 +21,21 @@ async def serve_with_websocket_main(websocket):
     idx: int = 0
     ctx: Optional[Context] = None
 
+    zmqctx = zmq.asyncio.Context()
+    zmqsocket = zmqctx.socket(zmq.PUB)
+    zmqsocket.bind("ipc:///tmp/whisper")
+
     while True:
-        logger.debug(f"Audio #: {idx}")
+        # logger.debug(f"Audio #: {idx}")
+        print(f"Segment #: {idx}")
         try:
             message = await websocket.recv()
         except ConnectionClosedOK:
             break
 
         if isinstance(message, str):
-            logger.debug(f"Got str: {message}")
+            # logger.debug(f"Got str: {message}")
+            print(f"Got str: {message}")
             d = json.loads(message)
             v = d.get("context")
             if v is not None:
@@ -43,22 +51,28 @@ async def serve_with_websocket_main(websocket):
                 return
             continue
 
-        logger.debug(f"Message size: {len(message)}")
+        # logger.debug(f"Message size: {len(message)}")
+        print(f"Message size: {len(message)}")
         audio = np.frombuffer(message, dtype=np.float32)
         if ctx is None:
-            await websocket.send(
-                json.dumps(
-                    {
-                        "error": "no context",
-                    }
-                )
-            )
+            # await websocket.send(
+            #     json.dumps(
+            #         {
+            #             "error": "no context",
+            #         }
+            #     )
+            # )
             return
         for chunk in g_wsp.transcribe(
             audio=audio,  # type: ignore
             ctx=ctx,
         ):
-            await websocket.send(chunk.json())
+            # await websocket.send(chunk.json())
+            print(f"[TRANSCRIPTION] {chunk.text}")
+            try:
+                await zmqsocket.send(chunk.text.encode(), flags=zmq.NOBLOCK)
+            except zmq.error.Again:
+                pass
         idx += 1
 
 
